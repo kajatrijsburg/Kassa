@@ -219,6 +219,7 @@ public class gui extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         Bon popup = new Bon();
         popup.setVisible(true);
+        jLabel1.setText("Total: ");
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
@@ -255,7 +256,7 @@ public class gui extends javax.swing.JFrame {
             }
         });
     }
-    
+        
     public static double calculateTotal(){
         double total = 0;
         

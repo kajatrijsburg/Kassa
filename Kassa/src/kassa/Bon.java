@@ -5,6 +5,8 @@
  */
 package kassa;
 
+import static kassa.gui.calculateTotal;
+
 /**
  *
  * @author OEM
@@ -27,31 +29,61 @@ public class Bon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        nextCustomer = new javax.swing.JButton();
+        goods = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("test");
+        nextCustomer.setBackground(new java.awt.Color(181, 230, 29));
+        nextCustomer.setText("Volgende klant");
+        nextCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextCustomerActionPerformed(evt);
+            }
+        });
+
+        goods.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goodsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(260, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(119, 119, 119))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(nextCustomer)
+                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(goods, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jLabel1)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(goods, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nextCustomer)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
+
+        nextCustomer.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void nextCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextCustomerActionPerformed
+        gui.itemCount = new int[6];
+        this.setVisible(false);       
+    }//GEN-LAST:event_nextCustomerActionPerformed
+
+    private void goodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodsActionPerformed
+        
+    }//GEN-LAST:event_goodsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +121,7 @@ public class Bon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private java.awt.List goods;
+    private javax.swing.JButton nextCustomer;
     // End of variables declaration//GEN-END:variables
 }
