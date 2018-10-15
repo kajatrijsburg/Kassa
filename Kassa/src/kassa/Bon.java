@@ -20,7 +20,41 @@ public class Bon extends javax.swing.JFrame {
     }
     
     public static void getBon() {
-        list1.add("test");
+        /*
+         * Hamburger = 0;
+         * soda = 1;
+         * fries = 2;
+         * onion rings = 3;
+         * milkshake = 4;
+         * icecream = 5;
+         */
+//        list1.add("test");
+        
+        for (int i = 0; i < gui.itemCount.length; i++) {
+            if( gui.itemCount[i] != 0 ) {
+                switch(i){
+                    case 0:
+                        goodsList.add(gui.itemCount[i] + " Hamburger   : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    case 1:
+                        goodsList.add(gui.itemCount[i] + " Soda              : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    case 2:
+                        goodsList.add(gui.itemCount[i] + " Fries       : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    case 3:
+                        goodsList.add(gui.itemCount[i] + " Onion Rings : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    case 4:
+                        goodsList.add(gui.itemCount[i] + " Milkshake   : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    case 5:
+                        goodsList.add(gui.itemCount[i] + " Ice cream   : " + (gui.itemCount[i] * gui.prices[i]));
+                        break;
+                    default: break;
+                }
+            }
+        }
     }
     
     /**
@@ -33,7 +67,7 @@ public class Bon extends javax.swing.JFrame {
     private void initComponents() {
 
         reset = new javax.swing.JButton();
-        list1 = new java.awt.List();
+        goodsList = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,6 +76,12 @@ public class Bon extends javax.swing.JFrame {
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetActionPerformed(evt);
+            }
+        });
+
+        goodsList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goodsListActionPerformed(evt);
             }
         });
 
@@ -55,14 +95,14 @@ public class Bon extends javax.swing.JFrame {
                 .addContainerGap(143, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(goodsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(goodsList, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(reset)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -77,6 +117,10 @@ public class Bon extends javax.swing.JFrame {
         gui.itemCount = new int[6];
         this.setVisible(false);       
     }//GEN-LAST:event_resetActionPerformed
+
+    private void goodsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodsListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_goodsListActionPerformed
      
     /**
      * @param args the command line arguments
@@ -116,7 +160,7 @@ public class Bon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public static java.awt.List list1;
+    public static java.awt.List goodsList;
     private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }

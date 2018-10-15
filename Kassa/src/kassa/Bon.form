@@ -30,7 +30,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="list1" max="32767" attributes="0"/>
+              <Component id="goodsList" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,7 +39,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="list1" min="-2" pref="227" max="-2" attributes="0"/>
+              <Component id="goodsList" min="-2" pref="227" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="reset" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="28" max="32767" attributes="0"/>
@@ -62,7 +62,10 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetActionPerformed"/>
       </Events>
     </Component>
-    <Component class="java.awt.List" name="list1">
+    <Component class="java.awt.List" name="goodsList">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="goodsListActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
       </AuxValues>
