@@ -10,12 +10,12 @@ package kassa;
  *
  * @author Nena
  */
-public class Bon extends javax.swing.JFrame {
+public class Preview extends javax.swing.JFrame {
 
     /**
      * Creates new form Bon
      */
-    public Bon() {
+    public Preview() {
         initComponents();
     }
     
@@ -72,7 +72,7 @@ public class Bon extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         reset.setBackground(new java.awt.Color(181, 230, 29));
-        reset.setText("Volgende klant");
+        reset.setText("End Preview");
         reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 resetActionPerformed(evt);
@@ -92,7 +92,7 @@ public class Bon extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addComponent(reset)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(goodsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -114,10 +114,8 @@ public class Bon extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
-        gui.itemList.clear();
-        gui.initItems();
+        this.setVisible(false);
         dispose();
-        this.setVisible(false);       
     }//GEN-LAST:event_resetActionPerformed
 
     private void goodsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodsListActionPerformed
@@ -141,20 +139,21 @@ public class Bon extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Bon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Preview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Bon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Preview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Bon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Preview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Bon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Preview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Bon().setVisible(true);
+                new Preview().setVisible(true);
             }
         });
         
