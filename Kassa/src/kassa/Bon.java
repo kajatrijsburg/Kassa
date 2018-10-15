@@ -5,11 +5,10 @@
  */
 package kassa;
 
-import static kassa.gui.calculateTotal;
 
 /**
  *
- * @author OEM
+ * @author Nena
  */
 public class Bon extends javax.swing.JFrame {
 
@@ -19,7 +18,11 @@ public class Bon extends javax.swing.JFrame {
     public Bon() {
         initComponents();
     }
-
+    
+    public static void getBon() {
+        list1.add("test");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,22 +32,16 @@ public class Bon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        nextCustomer = new javax.swing.JButton();
-        goods = new java.awt.List();
+        reset = new javax.swing.JButton();
+        list1 = new java.awt.List();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        nextCustomer.setBackground(new java.awt.Color(181, 230, 29));
-        nextCustomer.setText("Volgende klant");
-        nextCustomer.addActionListener(new java.awt.event.ActionListener() {
+        reset.setBackground(new java.awt.Color(181, 230, 29));
+        reset.setText("Volgende klant");
+        reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextCustomerActionPerformed(evt);
-            }
-        });
-
-        goods.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                goodsActionPerformed(evt);
+                resetActionPerformed(evt);
             }
         });
 
@@ -54,37 +51,33 @@ public class Bon extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(140, 140, 140)
-                .addComponent(nextCustomer)
+                .addComponent(reset)
                 .addContainerGap(143, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(goods, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(list1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(goods, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(list1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nextCustomer)
+                .addComponent(reset)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        nextCustomer.getAccessibleContext().setAccessibleDescription("");
+        reset.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nextCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextCustomerActionPerformed
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
         gui.itemCount = new int[6];
         this.setVisible(false);       
-    }//GEN-LAST:event_nextCustomerActionPerformed
-
-    private void goodsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goodsActionPerformed
-        
-    }//GEN-LAST:event_goodsActionPerformed
-
+    }//GEN-LAST:event_resetActionPerformed
+     
     /**
      * @param args the command line arguments
      */
@@ -118,10 +111,12 @@ public class Bon extends javax.swing.JFrame {
                 new Bon().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.List goods;
-    private javax.swing.JButton nextCustomer;
+    public static java.awt.List list1;
+    private javax.swing.JButton reset;
     // End of variables declaration//GEN-END:variables
 }
