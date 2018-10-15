@@ -5,6 +5,8 @@
  */
 package kassa;
 
+import java.awt.Color;
+
 /**
  *
  * @author kajat
@@ -49,6 +51,7 @@ public class gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jToggleButton1.setBackground(new java.awt.Color(255, 0, 0));
         jToggleButton1.setText("Discount (15%)");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +203,14 @@ public class gui extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         discountActive = !discountActive;
+        
+        if (discountActive) {
+            jToggleButton1.setBackground(Color.green);
+        }else{
+            jToggleButton1.setBackground(Color.red);
+        }
+        
+        System.out.println();
         jLabel1.setText("Total: " + calculateTotal());
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
@@ -248,6 +259,8 @@ public class gui extends javax.swing.JFrame {
         if(discountActive){
             total = total * (1- (discount / 100));
         }
+        
+        total = Math.round(total * 100)/100;
         
         return total;
     }
