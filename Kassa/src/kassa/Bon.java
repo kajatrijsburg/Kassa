@@ -28,16 +28,18 @@ public class Bon extends javax.swing.JFrame {
          * milkshake = 4;
          * icecream = 5;
          */
-//        list1.add("test");
+
+        double sum = 0;
         
         for (int i = 0; i < gui.itemCount.length; i++) {
             if( gui.itemCount[i] != 0 ) {
+                sum = sum + gui.prices[i];
                 switch(i){
                     case 0:
                         goodsList.add(gui.itemCount[i] + " Hamburger   : " + (gui.itemCount[i] * gui.prices[i]));
                         break;
                     case 1:
-                        goodsList.add(gui.itemCount[i] + " Soda              : " + (gui.itemCount[i] * gui.prices[i]));
+                        goodsList.add(gui.itemCount[i] + " Soda        : " + (gui.itemCount[i] * gui.prices[i]));
                         break;
                     case 2:
                         goodsList.add(gui.itemCount[i] + " Fries       : " + (gui.itemCount[i] * gui.prices[i]));
@@ -54,6 +56,21 @@ public class Bon extends javax.swing.JFrame {
                     default: break;
                 }
             }
+        }
+        
+        double discount = (sum / 100 * 15);
+        double btw = (sum / 100 * 6);
+        
+        goodsList.add("------------------------------------------------");
+        
+        if(gui.discountActive){
+            goodsList.add("Inclusief BTW 6% : " + btw);
+            goodsList.add("15% korting : " + discount);
+            goodsList.add("Totaal : " + (sum - discount + btw));
+            
+        } else {
+            goodsList.add("Inclusief BTW 6% : " + btw);
+            goodsList.add("Totaal : " + (sum + btw));
         }
     }
     
