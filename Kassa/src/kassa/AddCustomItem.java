@@ -33,7 +33,7 @@ public class AddCustomItem extends javax.swing.JDialog {
         jSeparator1 = new javax.swing.JSeparator();
         nameArticle = new javax.swing.JTextField();
         priceArticleLabel = new javax.swing.JLabel();
-        priceArtikle = new javax.swing.JTextField();
+        priceArticle = new javax.swing.JTextField();
         add = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -73,7 +73,7 @@ public class AddCustomItem extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(priceArticleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(priceArtikle)))
+                        .addComponent(priceArticle)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(157, 157, 157)
@@ -94,7 +94,7 @@ public class AddCustomItem extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceArticleLabel)
-                    .addComponent(priceArtikle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(priceArticle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(add)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -104,7 +104,12 @@ public class AddCustomItem extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        // TODO add your handling code here:
+        if (!nameArticle.getText().equalsIgnoreCase("") && !priceArticle.getText().equalsIgnoreCase("")) {
+            Product customProduct = new Product(nameArticle.getText(), Integer.parseInt(priceArticle.getText()) , 0);
+            gui.itemList.add(customProduct);
+            gui.getItem(nameArticle.getText()).count++;
+            this.setVisible(false);
+        }
     }//GEN-LAST:event_addActionPerformed
 
     /**
@@ -155,7 +160,7 @@ public class AddCustomItem extends javax.swing.JDialog {
     private javax.swing.JLabel modalTitle;
     private javax.swing.JTextField nameArticle;
     private javax.swing.JLabel nameArticleLabel;
+    private javax.swing.JTextField priceArticle;
     private javax.swing.JLabel priceArticleLabel;
-    private javax.swing.JTextField priceArtikle;
     // End of variables declaration//GEN-END:variables
 }

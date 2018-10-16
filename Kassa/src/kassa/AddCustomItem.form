@@ -41,7 +41,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="priceArticleLabel" min="-2" pref="81" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="priceArtikle" max="32767" attributes="0"/>
+                      <Component id="priceArticle" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -68,7 +68,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="priceArticleLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="priceArtikle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="priceArticle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="add" min="-2" max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
         <Property name="text" type="java.lang.String" value="Prijs artikel :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="priceArtikle">
+    <Component class="javax.swing.JTextField" name="priceArticle">
     </Component>
     <Component class="javax.swing.JButton" name="add">
       <Properties>
