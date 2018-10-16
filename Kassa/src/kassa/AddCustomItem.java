@@ -61,19 +61,18 @@ public class AddCustomItem extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(nameArticleLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(nameArticle))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(128, 128, 128)
                         .addComponent(modalTitle)
                         .addGap(0, 117, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(priceArticleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameArticleLabel)
+                            .addComponent(priceArticleLabel))
                         .addGap(18, 18, 18)
-                        .addComponent(priceArticle)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(priceArticle)
+                            .addComponent(nameArticle))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(157, 157, 157)
@@ -105,7 +104,7 @@ public class AddCustomItem extends javax.swing.JDialog {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         if (!nameArticle.getText().equalsIgnoreCase("") && !priceArticle.getText().equalsIgnoreCase("")) {
-            Product customProduct = new Product(nameArticle.getText(), Integer.parseInt(priceArticle.getText()) , 0);
+            Product customProduct = new Product(nameArticle.getText(), Double.parseDouble(priceArticle.getText().replace(',', '.')  ) , 0);
             gui.itemList.add(customProduct);
             gui.getItem(nameArticle.getText()).count++;
             this.setVisible(false);
