@@ -47,13 +47,13 @@ public class Preview extends javax.swing.JFrame {
         goodsList.add("------------------------------------------------");
         
         if(gui.discountActive){
-            goodsList.add("Inclusief BTW 6% : " + btw);
-            goodsList.add("15% korting : " + discount);
-            goodsList.add("Totaal : " + (sum - discount + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
+            goodsList.add("15% korting : " + gui.roundMoney(discount));
+            goodsList.add("Totaal : " + gui.roundMoney(sum - discount + btw));
             
         } else {
-            goodsList.add("Inclusief BTW 6% : " + btw);
-            goodsList.add("Totaal : " + (sum + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
+            goodsList.add("Totaal : " + gui.roundMoney(sum + btw));
         }
     }
     

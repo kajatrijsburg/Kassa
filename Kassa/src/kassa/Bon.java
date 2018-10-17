@@ -30,25 +30,28 @@ public class Bon extends javax.swing.JFrame {
          */
 
         double sum = 0;
-        double discount = (sum / 100 * gui.discount);
-        double btw = (sum / 100 * 6);
+        
+        
         
         for (int i = 0; i < gui.itemList.size(); i++) {
             Product temp = (Product) gui.itemList.get(i);
             
             if( temp.count != 0 ) {
-                sum = sum + temp.price;
-                goodsList.add(temp.count + " " + temp.name + "   : " + (temp.count * temp.price));
+                sum += temp.price;
+                goodsList.add(temp.count + " " + temp.name + "   : " + gui.roundMoney(temp.count * temp.price));
                 
             }
         }
+        
+        double btw = (sum / 100 * 6);
+        double discount = (sum / 100 * gui.discount);
         
         goodsList.add("------------------------------------------------");
         
         if(gui.discountActive){
             goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
             goodsList.add("15% korting : " + gui.roundMoney(discount));
-            goodsList.add("Totaal : " + gui.roundMoney(sum - discount + btw));
+            goodsList.add("Totaal : " + gui.roundMoney(sum - (discount + btw)));
             
         } else {
             goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));

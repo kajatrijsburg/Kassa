@@ -303,6 +303,7 @@ public class gui extends javax.swing.JFrame {
         // TODO add your handling code here:
         // add custom item here
         (new AddCustomItem(this, true)).setVisible(true);
+        jLabel1.setText("Total: " + calculateTotal());
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
