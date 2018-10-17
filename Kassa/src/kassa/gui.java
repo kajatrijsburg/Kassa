@@ -372,9 +372,17 @@ public class gui extends javax.swing.JFrame {
             total = total * (1- (discount / 100));
         }
         
-        total = (double) Math.round(total * 100)/100;
+        total = roundMoney(total);
         
         return total;
+    }
+    
+    public static double roundMoney( double amount){
+        double roundedMoney;
+        
+        roundedMoney = (double) Math.round(amount * 100)/100;
+        
+        return roundedMoney;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
