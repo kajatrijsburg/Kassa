@@ -30,6 +30,8 @@ public class Bon extends javax.swing.JFrame {
          */
 
         double sum = 0;
+        double discount = (sum / 100 * gui.discount);
+        double btw = (sum / 100 * 6);
         
         for (int i = 0; i < gui.itemList.size(); i++) {
             Product temp = (Product) gui.itemList.get(i);
@@ -41,19 +43,16 @@ public class Bon extends javax.swing.JFrame {
             }
         }
         
-        double discount = (sum / 100 * gui.discount);
-        double btw = (sum / 100 * 6);
-        
         goodsList.add("------------------------------------------------");
         
         if(gui.discountActive){
-            goodsList.add("Inclusief BTW 6% : " + btw);
-            goodsList.add("15% korting : " + discount);
-            goodsList.add("Totaal : " + (sum - discount + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
+            goodsList.add("15% korting : " + gui.roundMoney(discount));
+            goodsList.add("Totaal : " + gui.roundMoney(sum - discount + btw));
             
         } else {
-            goodsList.add("Inclusief BTW 6% : " + btw);
-            goodsList.add("Totaal : " + (sum + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
+            goodsList.add("Totaal : " + gui.roundMoney(sum + btw));
         }
     }
     
