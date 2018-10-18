@@ -20,42 +20,41 @@ public class Bon extends javax.swing.JFrame {
     }
     
     public static void getBon() {
-        /*
-         * Hamburger = 0;
-         * soda = 1;
-         * fries = 2;
-         * onion rings = 3;
-         * milkshake = 4;
-         * icecream = 5;
-         */
-
         double sum = 0;
-        
-        
         
         for (int i = 0; i < gui.itemList.size(); i++) {
             Product temp = (Product) gui.itemList.get(i);
             
             if( temp.count != 0 ) {
-                sum += temp.price;
-                goodsList.add(temp.count + " " + temp.name + "   : " + gui.roundMoney(temp.count * temp.price));
+                sum = sum + (temp.price * temp.count);
                 
+                if(gui.discountActive){
+                    double old = gui.roundMoney((temp.count * temp.price) - sum / 106 * 6);
+                    goodsList.add(temp.count + " " + temp.name + "   : " + old);
+                } else {
+                    goodsList.add(temp.count + " " + temp.name + "   : " + gui.roundMoney((temp.count * temp.price) - sum / 106 * 6));
+                }
             }
         }
         
-        double btw = (sum / 100 * 6);
+        double btw = (sum / 106 * 6);
         double discount = (sum / 100 * gui.discount);
+        double discountbtw = ((sum - discount) / 106 * 6);
+        
+        System.out.println(sum);
+        System.out.println(btw);
+        System.out.println(discount);
         
         goodsList.add("------------------------------------------------");
         
         if(gui.discountActive){
-            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(discountbtw));
             goodsList.add("15% korting : " + gui.roundMoney(discount));
-            goodsList.add("Totaal : " + gui.roundMoney(sum - (discount + btw)));
+            goodsList.add("Totaal : " + gui.roundMoney(sum - discount));
             
         } else {
             goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
-            goodsList.add("Totaal : " + gui.roundMoney(sum + btw));
+            goodsList.add("Totaal : " + gui.roundMoney(sum));
         }
     }
     
@@ -71,7 +70,7 @@ public class Bon extends javax.swing.JFrame {
         reset = new javax.swing.JButton();
         goodsList = new java.awt.List();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         reset.setBackground(new java.awt.Color(181, 230, 29));
         reset.setText("Volgende klant");
