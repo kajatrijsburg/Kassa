@@ -20,40 +20,41 @@ public class Preview extends javax.swing.JFrame {
     }
     
     public static void getBon() {
-        /*
-         * Hamburger = 0;
-         * soda = 1;
-         * fries = 2;
-         * onion rings = 3;
-         * milkshake = 4;
-         * icecream = 5;
-         */
-
         double sum = 0;
-        
+
         for (int i = 0; i < gui.itemList.size(); i++) {
             Product temp = (Product) gui.itemList.get(i);
             
             if( temp.count != 0 ) {
-                sum = sum + temp.price;
-                goodsList.add(temp.count + " " + temp.name + "   : " + (temp.count * temp.price));
-                
+                if (gui.discountActive) {
+                    sum =  sum + (temp.price * temp.count);
+                    double ds = (temp.count * temp.price) / 100 * (100 - gui.discount);
+                    double db = ds / 85 * 15;
+                    double b = (ds + db) / 106 * 6;
+                    double price = (ds + db) - b;
+                    
+                    
+                    goodsList.add(temp.count + " " + temp.name + "   : " + gui.roundMoney(price));
+                } else {
+                    sum =  sum + (temp.price * temp.count);
+                    goodsList.add(temp.count + " " + temp.name + "   : " + gui.roundMoney(temp.count * temp.price /106 * 100));
+                }
             }
         }
         
-        double discount = (sum / 100 * gui.discount);
-        double btw = (sum / 100 * 6);
+        double discountSum = sum / 100 * (100 - gui.discount);
+        double discountBtw = discountSum / 85 * 15;
         
         goodsList.add("------------------------------------------------");
         
         if(gui.discountActive){
-            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
-            goodsList.add("15% korting : " + gui.roundMoney(discount));
-            goodsList.add("Totaal : " + gui.roundMoney(sum - discount + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney((discountSum + discountBtw) / 106 * 6));
+            goodsList.add("15% korting : " + gui.roundMoney(discountBtw));
+            goodsList.add("Totaal : " + gui.roundMoney(discountSum));
             
         } else {
-            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(btw));
-            goodsList.add("Totaal : " + gui.roundMoney(sum + btw));
+            goodsList.add("Inclusief BTW 6% : " + gui.roundMoney(sum / 106 * 6));
+            goodsList.add("Totaal : " + gui.roundMoney(sum));
         }
     }
     
