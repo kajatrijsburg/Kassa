@@ -264,12 +264,12 @@ public class gui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        getItem("Onion rings").count++;
+        getItem("Milkshake").count++;
         jLabel1.setText("Total: " + calculateTotal());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        getItem("Onion rings").count++;
+        getItem("Icecream").count++;
         jLabel1.setText("Total: " + calculateTotal());
     }//GEN-LAST:event_jButton7ActionPerformed
 
