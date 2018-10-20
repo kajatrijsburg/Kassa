@@ -11,7 +11,7 @@ package kassa;
  * @author Nena
  */
 public class Preview extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Bon
      */

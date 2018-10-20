@@ -349,7 +349,6 @@ public class gui extends javax.swing.JFrame {
     }
     
     public static Product getItem(String name){
-        System.out.println(name);
         Product item = null;
         
         for (int i = 0; i < itemList.size(); i++) {
@@ -358,7 +357,6 @@ public class gui extends javax.swing.JFrame {
                 item = temp;
             }
         }
-        System.out.println(item);
         return item;
     }
         
