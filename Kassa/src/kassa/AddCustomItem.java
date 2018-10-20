@@ -5,6 +5,8 @@
  */
 package kassa;
 
+import java.awt.Color;
+
 /**
  *
  * @author OEM
@@ -35,6 +37,7 @@ public class AddCustomItem extends javax.swing.JDialog {
         priceArticleLabel = new javax.swing.JLabel();
         priceArticle = new javax.swing.JTextField();
         add = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -75,9 +78,13 @@ public class AddCustomItem extends javax.swing.JDialog {
                             .addComponent(nameArticle))))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(add)
+                .addContainerGap()
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(add)
+                .addGap(148, 148, 148))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,15 +102,22 @@ public class AddCustomItem extends javax.swing.JDialog {
                     .addComponent(priceArticleLabel)
                     .addComponent(priceArticle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(add)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
-        if (!nameArticle.getText().equalsIgnoreCase("") && !priceArticle.getText().equalsIgnoreCase("")) {
+        
+        if(gui.getItem(nameArticle.getText()) != null ) {
+            jLabel1.setText("Artikel naam is al in gebruik!!!");
+            jLabel1.setForeground(Color.red);
+        }
+        else if (!nameArticle.getText().equalsIgnoreCase("") && !priceArticle.getText().equalsIgnoreCase("")) {
             Product customProduct = new Product(nameArticle.getText(), Double.parseDouble(priceArticle.getText().replace(',', '.')  ) , 0);
             gui.itemList.add(customProduct);
             gui.getItem(nameArticle.getText()).count++;
@@ -155,6 +169,7 @@ public class AddCustomItem extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel modalTitle;
     private javax.swing.JTextField nameArticle;
